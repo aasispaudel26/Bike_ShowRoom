@@ -4,9 +4,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $Name = $_POST['Name'];
   $Email = $_POST['Email'];
   $Message = $_POST['Message'];
-  
 
-  
+
+
   $query = "INSERT INTO contactUs
       (Name,
         Email,
@@ -22,258 +22,80 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $params = array(&$Name, &$Email, &$Message);
 
   $stmt = sqlsrv_prepare($conn, $query, $params);
-  
+
   // Execute the statement
   if (sqlsrv_execute($stmt) === false) {
     die(print_r(sqlsrv_errors(), true));
   }
-
 }
-
-
-
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Contact Us</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
 
 </head>
-<style>
-*{
-	padding: 0;
-	margin: 0;
-}
-body{
-  background-color: #ff6600;
-  background-position: 0vmin;
-  background-size: cover;
-}
-h2{
-	transform-style: preserve-3d;
-}
 
-.container{
-	background: darkgreen;
-	width: 350px;
-	height: 400px;
-	padding-bottom: 20px;
-	position: absolute;
-	top:50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	margin: auto;
-  padding: 70px 50px 20px 50px;
-}
-
-
-.fl{
-	float: left;
-  width: 110px;
-  line-height: 35px;
-}
-
-.fontLabel{
-  color: white;
-}
-
-.fr{
-	float: right;
-}
-
-.clr{
-	clear: both;
-}
-
-.box{
-	width: 360px;
-	height: 35px;
-	margin-top: 10px;
-	font-family: verdana;
-	font-size: 12px;
-}
-
-.textBox{
-	height: 35px;
-	width: 190px;
-	border: none;
-  padding-left: 20px;
-}
-
-.new{
-  float: left;
-}
-
-.iconBox{
-	height: 35px;
-	width: 40px;
-	line-height: 38px;
-	text-align: center;
-  background: #ff6600;
-}
-
-.radio{
-	color: white;
-	background: #2d3e3f;
-	line-height: 38px;
-}
-
-.terms{
-	line-height: 35px;
-	text-align: center;
-	background: #2d3e3f;
-	color: white;
-}
-
-.submit{
-	float: right;
-	border: none;
-	color: blue;
-	width: 110px;
-	height: 35px;
-	background: #ff6600;
-	text-transform: uppercase;
-  cursor: pointer;
-}
-header {
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-
-.logo {
-    flex: 1;
-}
-
-.logo img {
-    height: 50px;
-}
-
-nav {
-    flex: 2;
-}
-
-nav ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    justify-content: flex-end;
-}
-
-nav ul li {
-    margin: 0 10px;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  width: 30%;
-  text-align: center;
-  margin: 20px;
-}
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.intro {
-    text-align: center;
-}
-
-.intro h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.intro p {
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-   </style>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.jpg" alt="Company Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="register.php">Bike register</a></li>
-                <li><a href="seller.php">Seller</a></li>
-                <li><a href="search.php">Search</a></li>
-                <li><a href="contactUS.php">Contact Us</a></li>
-                <li><a href="aboutUs.html">About Us</a></li>
-            </ul>
-        </nav>
-    </header>
-    <h1>Contact Us</h1>
-    <main>
-        <div class="container">
-            <form method="post">
-            <div class="box">
-                  <label for="Name" class="fl fontLabel"> Name: </label>
-                        <div class="fl iconBox"><i class="fa fa-user" aria-hidden="true"></i></div>
-                        
-                        <div class="fr">
-                                <input type="text" required name="Name"
-                       id="model" class="textBox">
-                        </div>
-                        <div class="clr"></div>
-                    </div>
+  <header>
+    <div class="logoo">
+      <img src="logooooo-removebg-preview.png" alt="logo" />
+      <h2 class="logo">AaSis</h2>
+    </div>
+    <!-- <h2 class="logo">AaSis</h2> -->
 
-                    <div class="box">
-                        <label for="email" class="fl fontLabel"> Email: </label>
-                              <div class="fl iconBox"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-                              <div class="fr">
-                                      <input type="Email" required name="Email"  id="Email"  class="textBox">
-                              </div>
-                              <div class="clr"></div>
-                          </div>
-                <div class="box">
-                  <label for="message" class="fl fontLabel"> Message: </label>
-                        <div class="fl iconBox"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-                        <div class="fr">
-                                <input type="text" required name="Message"
-                                 id="Message" name="Message" class="textBox" required></textarea>
-                        </div>
-                        <div class="clr"></div>
-                    </div><br>
-                <!-- <div class="box" style="background: greenyellow"> -->
-                
-              <center><button type="submit">Send Message</button></center>
-            </form>
-            <br>
-            <br>
-        
-    </main>
+    <nav class="navigation">
+      <a href="index.html">Home</a>
+      <a href="seller.php">Seller</a>
+      <a href="contactUS.php">Contact Us</a>
+      <a href="search.php">Search</a>
+      <a href="aboutUs.html">About</a>
+      <button class="btn"><a href="login.php">login</a></button>
+    </nav>
+  </header>
+
+  <div class="container border mt-3 bg-light">
+    <div class="row">
+      <div class="col-md-6 p-5 bg-primary text-white">
+        <h1>HI THere</h1>
+        <h4>
+          If you have any query or message you can send message to us! <br />
+          Thank you!
+        </h4>
+      </div>
+
+      <div class="col-md-6 py-3" style="background-color: aqua">
+        <center>
+          <h1>Contact US</h1>
+        </center>
+        <form action="" method="post">
+          <div class="form-group">
+            <h5 for="name">Name</h5>
+            <input type="text " id="Name" name="Name" required class="form-control" placeholder="Enter your name" />
+          </div>
+
+          <div class="form-group">
+            <h5 for="email">Email</h5>
+            <input type="email" id="Email" name="Email" required class="form-control" id="Email" placeholder="Enter your email" />
+          </div>
+
+          <div class="form-group">
+            <h5 for="message">Message</h5>
+            <textarea id="Message" id="Message" name="Message" required rows="3" class="form-control"></textarea>
+          </div>
+          <button class="btn btn-primary" onclick="sendMail()">Send</button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

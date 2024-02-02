@@ -1,18 +1,18 @@
-
 <?php
 
 $serverName = 'AASISPC\SQLEXPRESS02';
 $databaseName = 'Bikeshowroom';
-// $username = $_POST['username'];
-// $password = $_POST['password'];
+// $username = 'your_username'; // Replace with your actual SQL Server username
+// $password = 'your_password'; // Replace with your actual SQL Server password
 
-$connection = [
-    "Database" => $databaseName
+$connectionOptions = [
+    "Database" => $databaseName,
+    // "Uid" => $username,
+    // "PWD" => $password
 ];
-$conn = sqlsrv_connect($serverName, $connection);
 
-// if ($conn === false) {
-//     die(print_r(sqlsrv_errors(), true));
-// } else {
-//     echo "Hello world";
-// }
+$conn = sqlsrv_connect($serverName, $connectionOptions);
+
+if ($conn === false) {
+    die(print_r(sqlsrv_errors(), true));
+}

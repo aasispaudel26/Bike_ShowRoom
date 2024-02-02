@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(bikes.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+.logoo {
+  flex: 1;
+  display: flex;
+}
+
+.logoo img {
+  height: 50px;
+  width: 60px;
+}
+
+.logo {
+  font-size: 2em;
+  color: white;
+  user-select: none;
+}
+
+.navigation a {
+  position: relative;
+  font: size 1.1em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+}
+.navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+
+.navigation a:hover::after {
+  transform: scaleX(1);
+}
+
+.navigation .btn {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 400px;
+  transition: 0.5s;
+}
+.navigation .btn:hover {
+  background: gold;
+  color: green;
+}
+.cover-text {
+  position: fixed;
+  top: 100px; /* Adjust the top spacing as needed */
+  left: 90px; /* Adjust the left spacing as needed */
+  color: burlywood;
+  max-width: 400px;
+  background: none; /* Set background to none for full transparency */
+  padding: 20px;
+}
+
+.cover-text h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.cover-text p {
+  font-size: 1.2em;
+}

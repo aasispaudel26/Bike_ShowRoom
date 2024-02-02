@@ -2,189 +2,135 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bike Registration</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-<style>
-        *{
-	padding: 0;
-	margin: 0;
-}
-body{
-  background-color: #ff6600;
-  background-position: 0vmin;
-  background-size: cover;
-}
-h2{
-	transform-style: preserve-3d;
-}
-
-.container{
-	background: darkgreen;
-	width: 350px;
-	height: 400px;
-	padding-bottom: 20px;
-	position: absolute;
-	top:50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	margin: auto;
-  padding: 70px 50px 20px 50px;
-}
-
-
-.fl{
-	float: left;
-  width: 110px;
-  line-height: 35px;
-}
-
-.fontLabel{
-  color: white;
-}
-
-.fr{
-	float: right;
-}
-
-.clr{
-	clear: both;
-}
-
-.box{
-	width: 360px;
-	height: 35px;
-	margin-top: 10px;
-	font-family: verdana;
-	font-size: 12px;
-}
-
-.textBox{
-	height: 35px;
-	width: 190px;
-	border: none;
-  padding-left: 20px;
-}
-
-.new{
-  float: left;
-}
-
-.iconBox{
-	height: 35px;
-	width: 40px;
-	line-height: 38px;
-	text-align: center;
-  background: #ff6600;
-}
-
-.radio{
-	color: white;
-	background: #2d3e3f;
-	line-height: 38px;
-}
-
-.terms{
-	line-height: 35px;
-	text-align: center;
-	background: #2d3e3f;
-	color: white;
-}
-
-.submit{
-	float: right;
-	border: none;
-	color: blue;
-	width: 110px;
-	height: 35px;
-	background: #ff6600;
-	text-transform: uppercase;
-  cursor: pointer;
-}
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Showroom</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <center>
-    <h2>
-        Welcome to Login
-    </h2>
-    </center>
-    <div class="container">
-<form method='POST' action="login.php">
+  <header>
+    <div class="logoo">
+      <img src="bikes.jpg" alt="logo" />
+      <h2 class="logo">AaSis</h2>
+    </div>
+    <!-- <h2 class="logo">AaSis</h2> -->
 
-    
-<div class="box">
-          <label for="username" class="fl fontLabel"> username: </label>
-    			<div class="new iconBox">
-            <i class="fa fa-user" aria-hidden="true"></i>
-          </div>
-    			<div class="fr">
-    					<input type="text" name="username" placeholder="username"
-              class="textBox" autofocus="on" required>
-    			</div><br><br>
-                <div class="clr"></div>
-                </div>
+    <nav class="navigation">
+      <a href="index.html">Home</a>
+      <a href="seller.php">Seller</a>
+      <a href="contactUS.php">Contact US</a>
+      <a href="search.php">Search</a>
+      <a href="aboutUs.html">About</a>
+      <button class="btn"><a href="login.php">login</a></button>
+    </nav>
+  </header>
+  <div class="wrapper">
+    <div class="form-box login">
+      <h2>Login</h2>
+      <form action="login.php" method="post">
+        <div class="input-box">
+          <span class="icon"><ion-icon name="person-circle"></ion-icon></span>
+          <input type="text" id="userName" name="userName" required>
+          <label>UserName</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+          <input type="password" id="Password" name="Password" required />
+          <label>Password</label>
+        </div>
+        <div class="remember-forget">
+          <label for="isAdmin">Admin Account?</label>
+          <input type="checkbox" id="isAdmin" name="isAdmin" value="1">
+        </div>
+        <!-- <div class="remember-forget">
+          <label><input type="checkbox" />Remember me</label>
+          <a href="#">Forget Password?</a>
+        </div> -->
 
-                <div class="box">
-          <label for="password" class="fl fontLabel"> Password </label>
-    			<div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
-    			<div class="fr">
-    					<input type="Password" required name="password" placeholder="Password" class="textBox">
-    			</div>
-    			<div class="clr"></div>
-    		</div><br>
-            <!-- <div class="box" style="background: greenyellow"> -->
-    <center><input type="submit" onclick="login()" value="Submit" name ="submit"><br>
-    </div></form>
-    </center>
+        <button type="submit" class="btn">Login</button>
+        <div class="login-register">
+          <p>
+            Don't have an account?<a href="register.php" class="register-link">Register</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>
 
-      
-
-
 
 <?php
- include 'connection.php';
+include 'connection.php';
+session_start(); // Start the session
 
-$username = $password = "";
-$username_err = $user_password_err = "";
+$userName = $Password = "";
+$username_err = $password_err = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty(trim($_POST['username']))) {
-      $username_err = "please enter a username";
-  } else if (empty(trim($_POST['password']))) {
-      $user_password_err = "please enter a password";
-  } else if (strlen(trim($_POST["password"])) < 6) {
-      $user_password_err = "password must be at least 6 characters long";
-  } else {
-      $sql = "SELECT * FROM seller WHERE username = ? AND password = ?";
-      $params = array(trim($_POST["username"]), trim($_POST["password"]));
-      $stmt = sqlsrv_query($conn, $sql, $params);
+  $userName = $_POST['userName'];
+  $Password = $_POST['Password'];
 
-      if ($stmt === false) {
-          die(print_r(sqlsrv_errors(), true));
-      }
+  // Check in the 'customers' table for admin
+  $sqlAdmin = "SELECT customer_id, userName, Password FROM customers WHERE userName = ? AND is_admin = 1";
+  $paramsAdmin = array(trim($userName));
+  $stmtAdmin = sqlsrv_prepare($conn, $sqlAdmin, $paramsAdmin);
 
-      $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
-
-      if ($row) {
-          session_start();
-          $_SESSION["id"] = $row["user_id"];
-          header('Location: seller.php');
-          exit;
+  if ($stmtAdmin === false) {
+    die(print_r(sqlsrv_errors(), true));
+  }
+  if (sqlsrv_execute($stmtAdmin)) {
+    $rowAdmin = sqlsrv_fetch_array($stmtAdmin, SQLSRV_FETCH_ASSOC);
+    if ($rowAdmin) {
+      if ($Password == $rowAdmin['Password']) { // Compare plain passwords directly
+        // Redirect admin to addBike.php
+        $_SESSION["id"] = $rowAdmin["customer_id"];
+        $_SESSION["is_admin"] = true;
+        header('Location: addBike.php');
+        exit;
       } else {
-          $username = trim($_POST["username"]);
+        $password_err = "Invalid password for admin";
+        echo "Password verification failed. Entered password: $Password, Password from DB: {$rowAdmin['Password']}";
+      }
+    } else {
+      // Check in the 'customers' table for regular users
+      $sqlCustomer = "SELECT customer_id, userName, Password FROM customers WHERE userName = ? AND (is_admin is null OR is_admin = 0)";
+      $paramsCustomer = array(trim($userName));
+      $stmtCustomer = sqlsrv_prepare($conn, $sqlCustomer, $paramsCustomer);
+
+      if ($stmtCustomer === false) {
+        die(print_r(sqlsrv_errors(), true));
       }
 
-      sqlsrv_free_stmt($stmt);
+      if (sqlsrv_execute($stmtCustomer)) {
+        $rowCustomer = sqlsrv_fetch_array($stmtCustomer, SQLSRV_FETCH_ASSOC);
+        if ($rowCustomer) {
+          if ($Password == $rowCustomer['Password']) { // Compare plain passwords directly
+            // Redirect regular user to seller.php
+            $_SESSION["id"] = $rowCustomer["customer_id"];
+            header('Location: seller.php');
+            exit;
+          } else {
+            $password_err = "Invalid password";
+            echo "Password verification failed. Entered password: $Password, Password from DB: {$rowCustomer['Password']}";
+          }
+        } else {
+          $username_err = "User not found";
+        }
+      } else {
+        die(print_r(sqlsrv_errors(), true));
+      }
+    }
+  } else {
+    die(print_r(sqlsrv_errors(), true));
   }
 
+  sqlsrv_free_stmt($stmtAdmin);
+  sqlsrv_free_stmt($stmtCustomer); // Make sure to free the statement for regular users // Make sure to free the statement for regular users
 }
-
 ?>

@@ -1,214 +1,78 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>About Us</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-</head>
-<style>
-     *{
-	padding: 0;
-	margin: 0;
-}
-body{
-  background-color: #ff6600;
-  background-position: 0vmin;
-  background-size: cover;
-}
-h2{
-	transform-style: preserve-3d;
-}
+    <link rel="stylesheet" type="text/css" href="aboutUs.css" />
+  </head>
 
-.container{
-	background: darkgreen;
-	width: 350px;
-	height: 400px;
-	padding-bottom: 20px;
-	position: absolute;
-	top:50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	margin: auto;
-  padding: 70px 50px 20px 50px;
-}
-
-
-.fl{
-	float: left;
-  width: 110px;
-  line-height: 35px;
-}
-
-.fontLabel{
-  color: white;
-}
-
-.fr{
-	float: right;
-}
-
-.clr{
-	clear: both;
-}
-
-.box{
-	width: 360px;
-	height: 35px;
-	margin-top: 10px;
-	font-family: verdana;
-	font-size: 12px;
-}
-
-.textBox{
-	height: 35px;
-	width: 190px;
-	border: none;
-  padding-left: 20px;
-}
-
-.new{
-  float: left;
-}
-
-.iconBox{
-	height: 35px;
-	width: 40px;
-	line-height: 38px;
-	text-align: center;
-  background: #ff6600;
-}
-
-.radio{
-	color: white;
-	background: #2d3e3f;
-	line-height: 38px;
-}
-
-.terms{
-	line-height: 35px;
-	text-align: center;
-	background: #2d3e3f;
-	color: white;
-}
-
-.submit{
-	float: right;
-	border: none;
-	color: blue;
-	width: 110px;
-	height: 35px;
-	background: #ff6600;
-	text-transform: uppercase;
-  cursor: pointer;
-}
-header {
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-
-.logo {
-    flex: 1;
-    
-}
-
-.logo img {
-    height: 50px;
-   
-}
-
-nav {
-    flex: 2;
-}
-
-nav ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    justify-content: flex-end;
-}
-
-nav ul li {
-    margin: 0 10px;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  width: 30%;
-  text-align: center;
-  margin: 20px;
-}
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.intro {
-    text-align: center;
-}
-
-.intro h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.intro p {
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-} 
-
-
-
-
-
-
-</style>
-<body>
+  <body>
     <header>
-        <div class="logo">
-            <img src="logo.jpg" alt="Company Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="register.php">Bike register</a></li>
-                <li><a href="seller.php">Seller</a></li>
-                <li><a href="search.php">Search</a></li>
-                <li><a href="contactUS.html">Contact Us</a></li>
-                <li><a href="aboutUs.html">About Us</a></li>
-            </ul>
-        </nav>
+      <div class="logoo">
+        <img src="bikes.jpg" alt="logo" />
+        <h2 class="logo">AaSis</h2>
+      </div>
+      <!-- <h2 class="logo">AaSis</h2> -->
+
+      <nav class="navigation">
+        <a href="index.html">Home</a>
+        <a href="seller.php">Seller</a>
+        <a href="contactUS.php">ContactUS</a>
+        <a href="search.php">Search</a>
+        <a href="aboutUs.html">About US</a>
+      </nav>
     </header>
-    
+
+    <div class="content">
+      <div class="logreg-box"></div>
+    </div>
+
+    <main style="margin-top: 80px">
+      <h2><center>About Us</center></h2>
+
+      <p>
+        <center>
+          Bike showroom is a platform for buying and selling bike online. <br />
+          Our main office is located in tinkune kathmandu.<br />
+          our telephone/fax number is +oo 10013567.<br />
+          You can also reach us by email at bikeshowroom35642@gmail.com
+        </center>
+      </p>
+      <h3><center>Our Staff</center></h3>
+      <ul>
+        <li>
+          <img
+            src="https://media.licdn.com/dms/image/C5603AQHr8sVAxmsBbw/profile-displayphoto-shrink_400_400/0/1657634683982?e=1712188800&v=beta&t=-2nxhUOAwfHjSpVSuWQ5uFpuJzGRqIy-Wx1faD12v8U"
+            alt="Staff 1"
+          />
+          <p><strong>Suneel karki</strong></p>
+        </li>
+        <li>
+          <img
+            src="https://media.licdn.com/dms/image/D4D03AQFTNUewizlLfg/profile-displayphoto-shrink_400_400/0/1688618742098?e=1712188800&v=beta&t=Z6Em5JytvTYl1v85LRp8TDBF30Nt4AlD3FKUPTHzeeI"
+            alt="Staff 1"
+          />
+          <p><strong>Aasis Paudel</strong></p>
+        </li>
+        <li>
+          <img
+            src="https://media.licdn.com/dms/image/D4D03AQE4QmvQYqsKIg/profile-displayphoto-shrink_800_800/0/1706613692871?e=1712188800&v=beta&t=4n8jTUGX6BGbRGBfQ96Zwt5HYvYZUpyqyo7jsN6RGVo"
+          />
+          <p><strong>odii</strong></p>
+        </li>
+      </ul>
+    </main>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56536.85454938299!2d85.31593003344567!3d27.66928564132321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1bcd4e2e9ea3%3A0x73c95174b311a2d9!2sRamroGaadi!5e0!3m2!1sen!2snp!4v1706613261857!5m2!1sen!2snp"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
 
     <footer>
-        <p>&copy; 2023Aasisbike. All rights reserved.</p>
+      <p>&copy; 2023Aasisbike. All rights reserved.</p>
     </footer>
-</body>
-
+  </body>
 </html>

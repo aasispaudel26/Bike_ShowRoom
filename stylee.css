@@ -90,7 +90,7 @@ header {
 .wrapper {
   position: relative;
   width: 400px;
-  height: 460px;
+  height: 600px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, -5);
   border-radius: 20px;
@@ -209,8 +209,6 @@ header {
   height: 100%;
   background: yellowgreen;
 }
-/* ... Your existing CSS ... */
-
 .input-box label[for="isAdmin"] {
   color: gold;
   font-weight: 500;
@@ -221,5 +219,3 @@ header {
 .input-box input[type="checkbox"] {
   margin-top: 10px;
 }
-
-/* ... Your existing CSS ... */
