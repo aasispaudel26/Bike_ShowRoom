@@ -6,7 +6,10 @@
 }
 
 body {
-  background-color: #ff6600; /* Add background color to body */
+  background-image: url("hiiiii.png"); /* Replace "your-image.jpg" with the path to your background image */
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* /* Add background color to body */
 }
 
 header {
@@ -14,11 +17,11 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 100px;
+  padding: 10px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 99;
+  z-index: 59;
   background-color: #ff6600; /* Background color for the header */
 }
 
@@ -36,22 +39,23 @@ header {
   font-size: 2em;
   color: white;
   user-select: none;
-  margin-left: 10px; /* Adjust as needed */
+  margin-left: 10px;
 }
 
 .navigation {
   display: flex;
-  align-items: center;
-  margin-left: 100px; /* Adjust as needed */
+  align-items: left;
+  margin-left: auto;
+  margin-bottom: 5px;
 }
 
 .navigation a {
-  font-size: 1.1em;
+  font-size: 0.9em;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  margin-left: 60px; /* Adjust as needed */
-  position: relative;
+  margin-right: 10px; /* Adjust spacing between links */
+  padding: 5px 10px;
 }
 
 .navigation a::after {
@@ -73,13 +77,13 @@ header {
 }
 
 .content {
-  margin-top: 40px; /* Adjust as needed */
-  padding: 20px 100px; /* Adjust as needed */
+  margin-top: 0px;
+  padding: 10px 100px; /* Adjust as needed */
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 p {
@@ -91,9 +95,9 @@ ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  background-color: #ff6600; /* Change the background color */
-  padding: 20px;
-  border-radius: 5px; /* Add border-radius for rounded corners */
+
+  padding: 40px;
+  border-radius: 20px;
 }
 
 li {
@@ -126,5 +130,3 @@ footer {
   left: 0;
   right: 0;
 }
-
-/* Other styles remain unchanged */

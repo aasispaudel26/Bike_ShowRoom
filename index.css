@@ -88,11 +88,11 @@ header {
 }
 .cover-text {
   position: fixed;
-  top: 100px; /* Adjust the top spacing as needed */
-  left: 90px; /* Adjust the left spacing as needed */
+  top: 100px;
+  left: 90px;
   color: burlywood;
   max-width: 400px;
-  background: none; /* Set background to none for full transparency */
+  background: none;
   padding: 20px;
 }
 

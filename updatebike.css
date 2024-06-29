@@ -8,72 +8,43 @@ body {
   background-repeat: no-repeat;
 }
 
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 20px;
-}
-
-.navigation {
-  background-color: #333;
-  padding: 10px 20px;
+h1 {
   text-align: center;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 
-.navigation a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 20px;
-  font-size: 18px;
-}
-
-.navigation a:first-child {
-  margin-left: 0;
-}
-
-main {
-  max-width: 600px;
-  margin: 20px auto;
+form {
+  max-width: 400px;
+  margin: 0 auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
 label {
+  display: block;
   margin-bottom: 10px;
-  font-weight: bold;
 }
 
 input[type="text"],
 input[type="file"] {
+  width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 20px;
-  border-radius: 5px;
   border: 1px solid #ccc;
-  transition: border-color 0.3s;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-input[type="text"]:focus,
-input[type="file"]:focus {
-  border-color: #333;
+img {
+  display: block;
+  margin-bottom: 20px;
+  max-width: 100%;
+  height: auto;
 }
 
 button[type="submit"] {
+  width: 100%;
   background-color: #333;
   color: #fff;
   padding: 12px 20px;

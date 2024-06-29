@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $stmt = sqlsrv_prepare($conn, $query, $params);
 
-  // Execute the statement
+
   if (sqlsrv_execute($stmt) === false) {
     die(print_r(sqlsrv_errors(), true));
   }
@@ -47,16 +47,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <header>
     <div class="logoo">
       <img src="logooooo-removebg-preview.png" alt="logo" />
-      <h2 class="logo">AaSis</h2>
+
     </div>
-    <!-- <h2 class="logo">AaSis</h2> -->
+
 
     <nav class="navigation">
       <a href="index.html">Home</a>
-      <a href="seller.php">Seller</a>
+      <a href="seller.php">Buy Bike</a>
       <a href="contactUS.php">Contact Us</a>
       <a href="search.php">Search</a>
-      <a href="aboutUs.html">About</a>
+      <a href="aboutUs.html">About US</a>
       <button class="btn"><a href="login.php">login</a></button>
     </nav>
   </header>

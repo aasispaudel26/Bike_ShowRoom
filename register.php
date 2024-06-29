@@ -65,12 +65,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="input-box">
           <span class="icon"><ion-icon name="person"></ion-icon></span>
-          <input type="text" id="Name" name="Name" required>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="person"></ion-icon></span>
+            <input type="text" id="Name" name="Name" pattern="[A-Za-z]+\s[A-Za-z]+" title="Please enter at least two words (name and surname)" required>
+            <label>Name</label>
+          </div>
+
           <label>Name</label>
         </div>
         <div class="input-box">
           <span class="icon"><ion-icon name="location"></ion-icon></ion-icon></span>
-          <input type="text" id="Address" name="Address" required>
+          <input type="text" id="Address" name="Address" pattern="[A-Za-z]+(?:\s[A-Za-z0-9\s]+)?" title="Address must start with alphabet characters only" required>
           <label>Address</label>
         </div>
 
@@ -81,12 +86,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="input-box">
           <span class="icon"><ion-icon name="call"></ion-icon></span>
-          <input type="tel" id="phoneNumber" name="phoneNumber" required>
+          <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" title="Please enter a 10-digit number" required>
           <label>phoneNumber</label>
         </div>
         <div class="input-box">
           <span class="icon"><ion-icon name="person-circle"></ion-icon></span>
-          <input type="text" id="userName" name="userName" required>
+          <input type="text" id="userName" name="userName" pattern="[A-Za-z][A-Za-z0-9]*" title="Username must start with a letter and can contain letters and numbers" required>
           <label>UserName</label>
         </div>
         <div class="input-box">

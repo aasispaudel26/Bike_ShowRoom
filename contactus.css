@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #ff6600; /* Add background color to body */
+  background-color: #ff6600;
 }
 
 header {
@@ -19,7 +19,7 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 99;
-  background-color: #ff6600; /* Background color for the header */
+  background-color: #ff6600;
 }
 
 .logoo {
@@ -36,13 +36,13 @@ header {
   font-size: 2em;
   color: white;
   user-select: none;
-  margin-left: 10px; /* Adjust as needed */
+  margin-left: 10px;
 }
 
 .navigation {
   display: flex;
   align-items: center;
-  margin-left: 100px; /* Adjust as needed */
+  margin-left: 100px;
 }
 
 .navigation a {
@@ -50,7 +50,7 @@ header {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  margin-left: 60px; /* Adjust as needed */
+  margin-left: 60px;
   position: relative;
 }
 

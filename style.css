@@ -209,7 +209,6 @@ header {
   height: 100%;
   background: yellowgreen;
 }
-/* ... Your existing CSS ... */
 
 .input-box label[for="isAdmin"] {
   color: gold;
@@ -221,5 +220,3 @@ header {
 .input-box input[type="checkbox"] {
   margin-top: 10px;
 }
-
-/* ... Your existing CSS ... */

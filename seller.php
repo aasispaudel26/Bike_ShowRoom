@@ -1,68 +1,112 @@
+<?php
+
+include 'connection.php';
+
+session_start();
+
+
+if (!isset($_SESSION["id"]) || empty($_SESSION["id"])) {
+    header("Location: login.php?redirect=seller.php");
+    exit;
+}
+
+if (isset($_POST["logout"])) {
+    session_destroy();
+    header("Location: index.html");
+    exit;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["bike_id"])) {
+    $bike_id = $_POST["bike_id"];
+    $customer_id = $_SESSION["id"];
+    $order_date = date("Y-m-d H:i:s");
+
+    // Check if the bike is already booked
+    $check_sql = "SELECT * FROM Orders WHERE bike_id = ?";
+    $check_params = array($bike_id);
+    $check_stmt = sqlsrv_query($conn, $check_sql, $check_params);
+
+    if ($check_stmt === false) {
+        echo "<script>alert('Error checking bike booking: " . print_r(sqlsrv_errors(), true) . "');</script>";
+    } else {
+        if (sqlsrv_has_rows($check_stmt)) {
+            echo "<script>alert('This bike is already booked.');</script>";
+        } else {
+            // Proceed with booking
+            $sql = "INSERT INTO Orders (bike_id, customer_id, Order_date) VALUES (?, ?, ?)";
+            $params = array($bike_id, $customer_id, $order_date);
+
+            $stmt = sqlsrv_query($conn, $sql, $params);
+
+            if ($stmt === false) {
+                echo "<script>alert('Error: " . print_r(sqlsrv_errors(), true) . "');</script>";
+            } else {
+                echo "<script>alert('Booked successfully');</script>";
+            }
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <title>Seller Page</title>
-    <link rel="stylesheet" type="text/css" href="seller.css">
-    <script src="script.js"></script>
-
+    <link rel="stylesheet" href="seller.css">
 </head>
 
 <body>
-    <?php
-
-    session_start();
-    if (!isset($_SESSION["id"]) || empty($_SESSION["id"])) {
-        header("Location:login.php");
-    }
-    ?>
-
+    <header>
+        <form method="post">
+            <button class="logout-button" type="submit" name="logout">Logout</button>
+        </form>
+        <div class="welcome-message">
+            <center>
+                <h2>Welcome!!! Here are bikes that can be your dream bike.</h2>
+            </center>
+        </div>
+    </header>
 
     <main>
-        <h1>Seller Page</h1>
-        <p>Welcome to your seller page. here are bikes that can be your dream bike.</p>
-        <div id="cars-table-body"></div>
-        <?php
-        include 'connection.php';
-        $sql = "SELECT * FROM bike";
+        <div class="bike-container">
+            <?php
 
-        $result = sqlsrv_query($conn, $sql);
+            $sql = "SELECT * FROM bike";
+            $result = sqlsrv_query($conn, $sql);
 
-        if ($result === false) {
-            die(print_r(sqlsrv_errors(), true));
-        }
-
-        if (sqlsrv_has_rows($result)) {
-            echo "<h3>Currently Listed bike</h3>";
-            echo "<table>";
-            echo "<tr>";
-            echo "<th>Brand</th>";
-            echo "<th>color</th>";
-            echo "<th>cc</th>";
-            echo "<th>Price</th>";
-            echo "<th>Location</th>";
-            echo "</tr>";
-
-            while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                echo "<tr>";
-                echo "<td>" . $row["Brand"] . "</td>";
-                echo "<td>" . $row["color"] . "</td>";
-                echo "<td>" . $row["cc"] . "</td>";
-                echo "<td>" . $row["price"] . "</td>";
-                echo "<td>" . $row["location"] . "</td>";
-                echo "</tr>";
+            if ($result === false) {
+                die(print_r(sqlsrv_errors(), true));
             }
 
-            echo "</table>";
-        } else {
-            echo "<h3>No bike Listed</h3>";
-        }
-        ?>
+            // Display bikes
+            if (sqlsrv_has_rows($result)) {
+                while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                    echo "<div class='bike'>";
+                    echo "<div class='bike-image'>";
+                    echo "<img src='data:image/jpeg;base64," . base64_encode($row["Bike_image"]) . "' alt='Bike Image'>";
+                    echo "</div>";
+                    echo "<div class='bike-details'>";
+                    echo "<p><strong>Brand:</strong> " . $row["Brand"] . "</p>";
+                    echo "<p><strong>CC:</strong> " . $row["CC"] . "</p>";
+                    echo "<p><strong>Price:</strong> " . $row["Price"] . "</p>";
+                    // Form to submit order
+                    echo "<form method='post'>";
+                    echo "<input type='hidden' name='bike_id' value='" . $row["Bike_id"] . "'>";
+                    echo "<button class='order-button' type='submit'>BOOK NOW</button>";
+                    echo "</form>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+            } else {
+                echo "<h3>No bikes listed</h3>";
+            }
+            ?>
+        </div>
     </main>
 
     <footer>
-
     </footer>
 </body>
 
